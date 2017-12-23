@@ -1,0 +1,360 @@
+<div class="home-container">
+    <header class="header">
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">quiz15</span>
+                <span class="heading-primary--sub">fun play learn</span>
+            </h1>
+            <a ng-href="#/home#entry" class="btn btn--white btn--animated" style="margin-right:2rem">enter</a>
+
+        </div>
+    </header>
+
+    <section class="section-about" style="background:#e5e5e5;
+    margin-top:-8rem">
+        <div class="u-center-text u-margin-bottom-big about" style="padding:0 2rem;">
+            <h2 class="heading-secondary u-margin-bottom-small" style="margin-top:8rem">
+                know about quiz 15 ?
+            </h2>
+            <br/>
+            <br/>
+            <p style="font-size:1.65rem;font-weight:500;letter-spacing:0.2rem"><strong>QUIZ15</strong> is an online platform where you can play quizzes in many popular categories. You can attempt as many tests as you like and can score points and you stand a chance to get placed in the leaderboard</p>
+            <br/>
+            <br/>
+            <h3 style="font-size:2.2rem;text-transform:uppercase;font-weight:600;word-spacing:0.7rem">So <a>SIGN-UP</a> today and test your knowledge in different fields</h3>
+
+        </div>
+    </section>
+
+    <section id="features" class="section-features">
+
+        <div class="row" style="text-align:center;overflow:visible;padding:0 3rem">
+            <div class="col-sm-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon fa fa-book" aria-hidden="true"></i>
+                    <br/>
+                    <h2 class="u-margin-bottom-small feature-head ">QUIZZES FROM POPULAR CATEGORIES</h2>
+                    <p class="feature-box__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 ">
+                <div class="feature-box ">
+                    <i class="feature-box__icon fa fa-laptop" aria-hidden="true"></i>
+                    <br/>
+                    <h2 class="u-margin-bottom-small feature-head">PLAY AND LEARN AT THE SAME TIME</h2>
+                    <p class="feature-box__text ">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 ">
+                <div class="feature-box ">
+                    <i class="feature-box__icon fa fa-trophy" aria-hidden="true"></i>
+                    <br/>
+                    <h2 class="u-margin-bottom-small feature-head ">SEE WHERE YOU STAND IN THE LEADERBOARD</h2>
+                    <p class="feature-box__text ">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section-entry" id="entry">
+        <div class=".row equal" style="width:90%;margin:auto">
+            <div class="col-md-6 no-padding">
+                <form ng-submit="signUp($scope.fname,$scope.lname,$scope.new_email,$scope.new_password) ">
+                    <div class="profile-section ">
+                        <div class="about-user ">
+                            <h2 class="section-header ">create an account</h2>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6 fname" style="padding-right:20px;padding-left:0;width:80% ">
+                                <div class="form__group ">
+                                    <input type="text " class="form__input " placeholder="First Name " id="fname " required ng-model="fname " minlength="2 ">
+                                    <label for="fname " class="form__label ">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 lname" style="padding-right:0px;padding-left:16px ">
+                                <div class="form__group ">
+                                    <input type="text " class="form__input " placeholder="Last Name " id="lname " required ng-model="lname " maxlength="20 ">
+                                    <label for="lname " class="form__label ">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__group " ng-if="home.fnameErr ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Enter a valid First Name !!!
+                            </div>
+                        </div>
+                        <div class="form__group " ng-if="home.lnameErr ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Enter a valid Last Name !!!
+                            </div>
+                        </div>
+
+                        <div class="form__group ">
+                            <input type="email " class="form__input " placeholder="Email " id="email " required ng-model="new_email ">
+                            <label for="email " class="form__label ">Email</label>
+                        </div>
+                        <div class="form__group " ng-if="home.emailErr ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Enter a valid Email !!!
+                            </div>
+                        </div>
+                        <div class="form__group " ng-if="home.signUpEmail ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Email Already exists !!!
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <input type="password" class="form__input" placeholder="Password" id="password" required ng-model="new_password" minlength="8">
+                            <label for="password" class="form__label ">Password</label>
+
+
+                        </div>
+                        <div class="form__group " ng-if="home.passwordErr ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Password must be minimum of 8 characters !!!
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success info " role="alert " ng-if="home.accInfo ">
+                            Your account has been created successfully! Redirecting you to the category page...
+                        </div>
+                        <div class="form__group" ng-if="home.serverErrorSignup">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Sorry we faced some server error, Please try again later
+                            </div>
+                        </div>
+                        <div class="center ">
+                            <input type="submit" class="edit-btn " value="SIGN UP " ng-disabled="home.signupBtnDisable " style="margin-bottom:5rem ">
+
+                        </div>
+
+
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 profile-section" style="margin-bottom:0">
+                <form ng-submit="login($scope.email,$scope.password)">
+                    <div class="login ">
+                        <div class="about-user ">
+                            <h2 class="section-header">LOGIN</h2>
+                        </div>
+
+                        <div class="form__group ">
+                            <input type="email" class="form__input" placeholder="Email " id="email" required ng-model="email ">
+                            <label for="email " class="form__label ">Email</label>
+                        </div>
+                        <br/>
+                        <div class="form__group ">
+                            <input type="password" class="form__input" placeholder="Password" id="password " required ng-model="password">
+                            <label for="password" class="form__label">{{home.passwordField}}</label>
+                        </div>
+
+                        <div class="form__group " ng-if="home.userInfo ">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Check your email and password and try login again.
+                            </div>
+                        </div>
+                        <div class="form__group" ng-if="home.serverError">
+                            <div class="alert alert-danger info " role="alert ">
+                                <strong>Oh snap!</strong> Sorry we faced some server error, Please try again later
+                            </div>
+                        </div>
+
+                        <div class="center">
+                            <input type="submit" class="edit-btn" value="LOGIN" ng-disabled="home.loginBtnDisable">
+                        </div>
+
+                        <div class="form__group" ng-if="home.loginSuccess" style="margin-top:1rem">
+                            <div class="alert alert-success info " role="alert ">
+                                <strong>HOLD ON ! LOGGING YOU IN ... </strong>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <footer class=" footer ">
+        <div class="row " style="border-top:2px solid grey ">
+            <div class="col-sm-6 ">
+                <div class="footer__navigation ">
+                    <p>QUIZ15 is a NODEJS application made by SHUBHAM KARMAKAR for his BCA 5th sem Project
+                    </p>>
+                </div>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="footer__copyright ">
+                    Application developed by <a href="https://github.com/shubdev07/ " target="_blank " class="footer__link ">Shubham Karmakar</a>
+                    <br/> © 2017 Shubham Karmakar. Some rights reserved.
+
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+    .about p {
+        word-spacing: 0.6rem;
+        max-width: 70%;
+        margin: auto;
+        line-height: 1.8;
+        text-transform: uppercase;
+    }
+    
+    .equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .equal>div[class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    p {
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    .info {
+        font-size: 1.6rem;
+    }
+    
+    .sign-up {
+        min-height: 50vh;
+    }
+    
+    .row {
+        overflow: hidden;
+    }
+    
+    .form-row {
+        padding-top: -10rem;
+    }
+    
+    [class*="col- "] {
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+    }
+    
+    .sign-up {
+        width: 60% !important;
+        padding-right: 1rem;
+    }
+    
+    input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1rem 0rem;
+        border-radius: 2px;
+        background-color: rbga(#fff, 0.5);
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        width: 100%;
+        display: block;
+        transition: all .3s;
+    }
+    
+    .profile-section {
+        font-family: "Lato ", sans-serif;
+        display: inline-block;
+        background-color: white;
+        width: 100%;
+        word-spacing: 0.3rem;
+        margin: auto;
+        margin-top: 4rem;
+        text-align: left;
+        box-sizing: border-box;
+        padding: 3rem 4rem;
+        transition: box-shadow .3s ease-in;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+        /*  margin-bottom: -99999px;
+        padding-bottom: 99999px; */
+    }
+    
+    .profile-section:hover {
+        -webkit-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+    }
+    
+    .about-user {
+        border-bottom: 1.5px solid #3F7FBF;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    .edit-btn {
+        margin-top: 20px;
+        background: red;
+        border: none;
+        outline: none;
+        text-align: center;
+        width: 130px !important;
+        border-radius: 40px;
+        background: #FFF;
+        border: 2px solid #1abc9c;
+        color: #1abc9c;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
+    }
+    
+    .center {
+        display: block;
+        text-align: center;
+    }
+    
+    .form__label {
+        color: #3F7FBF;
+        margin-left: 0;
+    }
+    
+    .edit-btn:hover {
+        color: white;
+        background: #1abc9c;
+    }
+    
+    input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1rem 0rem;
+        border-radius: 2px;
+        background-color: rbga(#fff, 0.5);
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        width: 100% !important;
+        display: block;
+        transition: all .3s;
+    }
+    
+    .form-check-label {
+        font-size: 1.6rem;
+    }
+</style>

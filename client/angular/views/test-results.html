@@ -1,0 +1,82 @@
+<div class="container-fluid" style="padding:0;margin:0">
+    <div class="row row-flex">
+        <div class="col-md-2 leader-board" style="padding-left:0; min-height:100vh">
+            <div class="">
+                <h3 class="heading-primary--sub" style="margin:0;padding-bottom:1rem;border-bottom:1px solid #EEEEEE;text-align:center">Most Correct Answers</h3>
+                <div class="leader-board-names">
+                    <ol>
+                        <div ng-repeat="user in testResults.leaderBoard | orderBy : '-correctAnswers' | limitTo : 5 ">
+                            <li>{{user.name}} - {{user.correctAnswers}}</li>
+                        </div>
+                    </ol>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-10 result-container">
+            <div class="result-items">
+                <div>
+
+                    <h2 class="heading-primary--sub" style="text-align:center;font-size:3rem;padding-bottom:2rem;">Your Test Results</h2>
+
+                    <div class="test-result-info">
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Correct Answers: <span ng-bind = "testResults.testResults.correctAnswers || 0"></span> </h3> <br/></span>
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Score Gained: <span ng-bind = "testResults.testResults.totalPoints || 0"></span> </h3><br/></span>
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Points Deducted: -<span ng-bind = "testResults.testResults.negativePoints || 0"> </span></h3><br/></span>
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Your current Points: <span ng-bind = "testResults.newScore.currentPoints"> </span> </h3><br/></span>
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Total Correct Answers: <span ng-bind = "testResults.newScore.correctAnswers"> </span> </h3><br/></span>
+                        <span style="padding-bottom:2rem"><h3 class="heading-secondary--sub">Total Wrong Answers: <span ng-bind = "testResults.newScore.wrongAnswers"> </span> </h3><br/></span>
+                    </div>
+
+                </div>
+                <div>
+
+                </div>
+
+            </div>
+            <div class="row" style="margin-top:1rem;">
+                <div class="col-md-12 result-btn" style="display:inline-block;text-align:center">
+                    <a href="#/category"><button class="edit-btn">PROCEED</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+
+
+<style>
+    .edit-btn {
+        margin-top: 20px;
+        background: red;
+        border: none;
+        outline: none;
+        height: 40px;
+        text-align: center;
+        width: 130px;
+        border-radius: 40px;
+        background: #FFF;
+        border: 2px solid #34495E;
+        color: #34495E;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .edit-btn:hover {
+        color: white;
+        background: #34495E;
+    }
+</style>

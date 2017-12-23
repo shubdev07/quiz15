@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload= question() >
+<h1>hello admin</h1>
+<form id ="question">
+    <div>
+       <!-- <input type="checkbox" id="programming" value="programming">
+        <input type="checkbox" id="gk" value="gk">-->
+        <input type="text" id="category" name="category">
+    </div>
+    <div>
+        <input type="text" id="quesion" name="question" placeholder="question">
+    </div>
+    <div>
+        <input type="text" id="option1" name="option1" placeholder="option1">
+        <input type="text" id="option2" name="option2" placeholder="option2">
+        <input type="text" id="option3" name="option3" placeholder="option3">
+        <input type="text" id="option4" name="option4" placeholder="option4">
+    </div>
+    <div>
+
+        <input type="text" id="answer" name="answer">
+    </div>
+    <div>
+        <input type="text" id="level" name="level">
+    </div>
+
+    <div>
+
+        <input type="submit" id="submit" value="create">
+    </div>
+
+</form>
+<div id="response">
+
+</div>
+<div>
+    <button id ="showQuestion">show all question</button>
+</div>
+<div id="questions">
+<p id="q"></p>
+<p id="cat"></p>
+<p id="o1"></p>
+    <p id="o2"></p>
+    <p id="o3"></p>
+    <p id="o4"></p>
+    <p id="ans"></p>
+    <p id="lev"></p>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

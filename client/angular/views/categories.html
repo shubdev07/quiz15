@@ -1,0 +1,130 @@
+<div>
+
+
+    <div class="container-fluid row nav-container fixed-top" style="padding:0">
+        <div class="col-sm-12" style="padding:0">
+            <nav class="nav nav-pills nav-fill ">
+                <a class="nav-item nav-link active" href="#/home">CATEGORY</a>
+                <a class="nav-item nav-link" href="#/user/profile">MY  PROFILE</a>
+                <a class="nav-item nav-link" href="" ng-click="logout()">LOGOUT</a>
+            </nav>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid category-page" style="padding:0;margin-top:3.5rem">
+        <div class="row row-flex" style="display:flex">
+            <div class="col-md-3" style="padding-left:0">
+                <div class="leader-board">
+                    <h3 class="heading-primary--sub" style="margin:0;padding-bottom:1rem;border-bottom:1px solid #EEEEEE;text-align:center">Top In The Board</h3>
+                    <div class="leader-board-names">
+                        <ol>
+                            <div ng-repeat="user in category.leaderBoard | orderBy : '-points' | limitTo : 5">
+                                <li>{{user.name}}: {{user.points}}</li>
+                            </div>
+                        </ol>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="category-container">
+
+                    <div class="category-header">
+                        <h2 style="color: rgba(0,151,167 ,1)!important; text-transform:uppercase;margin-bottom:1rem">Hi ! {{user.name}}</h2>
+                        <h3 class="heading-primary--sub" style="margin:0">Which Category you wanna play?</h3>
+                        <h3 style="color: #0A5DB6 !important;padding-top:2rem;">I Would like to Try</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a ng-click="openTestInfo('lg','gk')" class="category-feature gk-feature"><span class="category-title">General<br/>Knowledge</span></a>
+                        </div>
+                        <div class="col-md-4"> <a class="category-feature finance-feature" ng-click="openTestInfo('lg','finance')"><span class="category-title">Finance</span></a></div>
+                        <div class="col-md-4 "> <a class="category-feature economics-feature" ng-click="openTestInfo('lg','Economics')"><span class="category-title">Economics</span></a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"> <a ng-click="openTestInfo('lg','programming')" class="category-feature programming-feature"><span class="category-title">Programming</span></a>
+                        </div>
+                        <div class="col-md-4"> <a ng-click="openTestInfo('lg','Accounting Law')" class="category-feature acc-law-feature"><span class="category-title">Accounting <br/> Law</span></a>
+                        </div>
+                        <div class="col-md-4"> <a ng-click="openTestInfo('lg','Networking')" class="category-feature networking-feature"><span class="category-title">Networking</span></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"> <a class="category-feature jee-feature coming-feature"><span class="category-title">JEE MAIN <br/> coming soon</span></a>
+                        </div>
+                        <div class="col-md-4"> <a class="category-feature gate-feature coming-feature"><span class="category-title">GATE <br/> coming soon</span></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+        <footer class="footer" style="padding:0rem 0">
+            <div class="row " style="border-top:2px solid grey ">
+                <div class="col-sm-6 ">
+                    <div class="footer__navigation ">
+                        <ul class="footer__list ">
+                            <li class="footer__item "><a href="# " class="footer__link ">Instagram</a></li>
+                            <li class="footer__item "><a href="# " class="footer__link ">Twitter</a></li>
+                            <li class="footer__item "><a href="https://github.com/shubdev07/ " target="_blank " class="footer__link ">Github</a></li>
+                            <li class="footer__item "><a href="# " class="footer__link ">Youtube</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 ">
+                    <p class="footer__copyright ">
+                        Application developed by <a href="https://github.com/shubdev07/ " target="_blank " class="footer__link ">Shubham Karmakar</a>
+                        <br/> © 2017 Shubham Karmakar. Some rights reserved.
+
+                    </p>
+                    <br/>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<style>
+    /*   .category-container {
+         background: rgb(31, 82, 100); 
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+    
+    #category-header {
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    nav div a {
+        color: black !important;
+    } */
+    
+    .nav-item:hover {
+        background-color: #EFF8FC;
+    }
+    
+    a:not([href]):not([tabindex]) {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:not([href]):not([tabindex]):hover {
+        color: white;
+    }
+    
+    .coming-feature:hover {
+        cursor: not-allowed;
+    }
+</style>

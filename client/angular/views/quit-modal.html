@@ -1,0 +1,57 @@
+<div class="quit-modal">
+    <div class="info-header">
+        <h1>
+            Are you sure you want to <strong style="color:red">QUIT</strong> ? </h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><a ng-click="cancel()"><button>NO <i class="fa fa-times" aria-hidden="true"></i></button></a></div>
+        <div class="col-md-6"><a ng-click="closeTest()"><button>YES, I QUIT <i class="fa fa-frown-o" aria-hidden="true"></i></button></a></div>
+    </div>
+
+    <style>
+        .info-header {
+            text-align: center;
+        }
+        
+        .quit-modal {
+            padding: 2rem 6rem;
+        }
+        
+        button {
+            background: #FFF;
+            border: 2px solid #1abc9c;
+            color: #1abc9c;
+            letter-spacing: 1px;
+            text-shadow: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            font-family: 'Lato', sans-serif;
+            display: inline-block;
+            margin-top: 20px;
+            background: red;
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 130px !important;
+            background: #FFF;
+            border: 2px solid #1abc9c;
+            color: #1abc9c;
+            letter-spacing: 1px;
+            text-shadow: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            font-family: 'Lato', sans-serif;
+            display: inline-block;
+        }
+        
+        button:hover {
+            color: white;
+            background: #1abc9c;
+        }
+    </style>

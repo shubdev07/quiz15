@@ -1,0 +1,46 @@
+<h1>hello admin</h1>
+<form >
+    <div style="background-color: #2f3238 ; color: black" >
+        <!-- <input type="checkbox" id="programming" value="programming">
+         <input type="checkbox" id="gk" value="gk">-->
+        <div>
+        <input type="text" list="category" ng-model="category" name="category">
+        <datalist id="category">
+            <option value="Programming"></option>
+            <option value="GK">
+        </option>
+        </datalist>
+        </div>
+    <div>
+        <input type="text" ng-model="q" name="q" placeholder="question">
+    </div>
+    <div>
+        <input type="text" ng-model="option1" name="option1" placeholder="option1">
+        <input type="text" ng-model="option2" name="option2" placeholder="option2">
+        <input type="text" ng-model="option3" name="option3" placeholder="option3">
+        <input type="text" ng-model="option4" name="option4" placeholder="option4">
+    </div>
+    <div>
+
+        <input type="text" ng-model="ans" name="ans">
+    </div>
+    <div>
+        <input type="text" ng-model="level" name="level">
+    </div>
+
+    <div>
+
+        <input type="button" ng-click="add()" value="create">
+    </div>
+    </div>
+</form>
+<div id="response">
+
+</div>
+<div>
+    <button id ="showQuestion">show all question</button>
+</div>
+<div>
+    {{response}}
+
+</div>

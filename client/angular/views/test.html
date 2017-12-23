@@ -1,0 +1,117 @@
+<div class="container-fluid test-page" style="padding:0;margin:0">
+    <div class="row row-flex" style="display:flex">
+        <div class="col-md-2" style="padding-left:0; padding-right:0">
+            <div class="q-info">
+                <h3 class="heading-primary--sub" style="margin:0;padding-bottom:1rem;border-bottom:1px solid #EEEEEE;text-align:center">about this question</h3>
+
+                <h3 class="heading-primary--sub pad-top" style="margin:0;padding-bottom:1rem;text-align:left">Difficulty level: <span ng-if="test.response.questions[test.number].difficultyLevel=='E'">EASY</span>
+                    <span ng-if="test.response.questions[test.number].difficultyLevel=='M'">MEDIUM</span>
+                    <span ng-if="test.response.questions[test.number].difficultyLevel=='H'">HARD</span>
+                </h3>
+                <h3 class="heading-primary--sub " style="margin:0;padding-bottom:1rem;text-align:left">Carrying <span ng-if="test.response.questions[0][test.number].difficultyLevel=='E'">3</span>
+                    <span ng-if="test.response.questions[0][test.number].difficultyLevel=='M'">5</span>
+                    <span ng-if="test.response.questions[0][test.number].difficultyLevel=='H'">7</span>
+                    <span>Points</span>
+                </h3>
+                <h3 class="heading-primary--sub " style="margin:0;padding-bottom:1rem;text-align:left">Score Gained: {{test.score}}
+                </h3>
+            </div>
+        </div>
+        <div class="col-md-10 test-container">
+
+            <h1 class="heading-primary--main category-heading">{{categoryName}}</h1>
+            <div style="display:flex;justify-content:space-between"><i class="fa fa-times-circle-o" aria-hidden="true" style="font-size:5rem;color:rgb(189, 37, 37);cursor:pointer" ng-click="quitModal('md')" data-toggle="tooltip" data-placement="top" title="Quit Test" ng-if="test.quit"></i><i class="fa fa-question-circle-o"
+                    aria-hidden="true" style="font-size:5rem;color:white;cursor:pointer" ng-click="openTestInfo('lg')" data-toggle="tooltip" data-placement="top" title="Know about the Test"></i></div>
+            <div class="question-container">
+                <div>
+                    <form>
+                        <h1 ng-if="test.seconds>=0">Time left : {{test.seconds}} seconds</h1>
+                        <h2 class="question">{{test.number+1}}. {{test.response.questions[test.number].questionText}}</h2>
+                        <div class="row">
+                            <div ng-repeat="option in test.response.questions[test.number].options" class="col-md-6 option-container">
+                                <button tooltip="I am a tooltip!" ng-disabled="test.disableBtn" style="cursor: pointer" class="options" ng-click="test.userAnswer(test.number,$index)">
+                                    <h3>{{option}}</h3>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form__group" ng-if="test.correct_msg">
+                            <div class="alert alert-success info" role="alert">
+                                <strong>Awesome!</strong> Thats's Right. KEEP GOING !!!
+                            </div>
+                        </div>
+                        <div class="form__group" ng-if="test.wrong_msg">
+                            <div class="alert alert-danger info" role="alert">
+                                <strong>OOPS!</strong> That's not the correct answer ! <br /><strong>
+                                  Quitting the TEST ...  </strong>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style>
+    .question-container {
+        background: #FFF;
+        padding: 5%;
+        text-align: center;
+    }
+    
+    .info {
+        font-size: 1.6rem;
+    }
+    
+    .fa-cog {
+        color: white;
+    }
+    
+    .options {
+        outline: none;
+        border: none;
+    }
+    
+    .quit-btn {
+        background: #FFF;
+        color: #f44336;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
+        margin-top: 20px;
+        background: red;
+        border: none;
+        outline: none;
+        text-align: center;
+        width: 130px !important;
+        background: #FFF;
+        border: 2px solid #f44336;
+        color: #f44336;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $('[data-toggle=tooltip]').hover(function() {
+            // on mouseenter
+            $(this).tooltip('show');
+        }, function() {
+            // on mouseleave
+            $(this).tooltip('hide');
+        });
+    });
+</script>

@@ -1,0 +1,80 @@
+<div class="test-info">
+
+    <div class="info-header">
+        <h1>
+            Hello currently you are in the middle of a test. </h1>
+        <h1 class="info-header"><strong style="color:red">HURRY UP!</strong> Read this quick to know how the test works</h1>
+    </div>
+
+    <br/>
+    <p>
+
+        Each Test consists of 15 questions and each question has 4 options out of which one is correct. Each correct answer will give you Positive (<i class="fa fa-plus" aria-hidden="true"></i>) Score depending on the question level and each wrong answer
+        will deduct -5 points from your account and also will close the test automatically. Although you can quit and -5 points will not be deducted then.<strong> But remember you can only quit after attempting atleast 5 questions </strong> There are 3 levels of questions in the test and each level has different points. <br/> Level 'E' (Easy) - 3 points | 6 questions
+        <br/> Level 'M' (Medium) - 5 points | 5 questions <br/> Level 'H' (Hard) - 7 points | 4 questions <br/> Each Question has a time limit of 30 seconds. If the 30 seconds are up and no option is selected by that period then the test will automatically
+        close giving you the points of all the correct answers you provided and will also deduct -5 points from your account.
+        <br />
+        <strong>KEEP GOING!</strong>We know you can do it.
+        <div class="row">
+            <div class="col-md-12" style="text-align:center"><a ng-click="cancel()"><button>CLOSE <i class="fa fa-times" aria-hidden="true"></i></button></a></div>
+        </div>
+    </p>
+</div>
+
+
+
+<style>
+    .info-header {
+        text-align: center;
+    }
+    
+    button {
+        background: #FFF;
+        border: 2px solid #1abc9c;
+        color: #1abc9c;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
+        margin-top: 20px;
+        background: red;
+        border: none;
+        outline: none;
+        text-align: center;
+        width: 130px !important;
+        background: #FFF;
+        border: 2px solid #1abc9c;
+        color: #1abc9c;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
+    }
+    
+    button:hover {
+        color: white;
+        background: #1abc9c;
+    }
+    
+    .test-info {
+        padding: 3.5rem 5rem;
+        margin: auto;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+        background-color: white;
+        overflow: scroll;
+    }
+    
+    p {
+        font-size: 1.8rem;
+    }
+</style>

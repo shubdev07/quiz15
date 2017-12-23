@@ -1,0 +1,283 @@
+<div class="container-fluid row nav-container fixed-top" style="padding:0">
+    <div class="col-sm-12" style="padding:0">
+        <nav class="nav nav-pills nav-fill ">
+            <a class="nav-item nav-link" href="#/category">CATEGORY</a>
+            <a class="nav-item nav-link" href="#/user/profile">MY  PROFILE</a>
+            <a class="nav-item nav-link" href="" ng-click="logout()">LOGOUT</a>
+        </nav>
+    </div>
+
+</div>
+<div class="container-fluid profile-page" style="padding:0;margin:0;min-height:100vh;margin-top:3.6rem">
+    <div class="alert alert-success info fixed-bottom" role="alert" ng-if="profile.accInfo" style="text-align:center;font-size:1.6rem">
+        Your profile has been updated successfully!
+    </div>
+    <div class="form__group" ng-if="profile.serverError" style="text-align:center;font-size:1.6rem">
+        <div class="alert alert-danger info fixed-bottom" role="alert ">
+            <strong>Oh snap!</strong> Sorry we faced some server error, Please try again later
+        </div>
+    </div>
+    <form ng-submit="profile.editProfile()">
+        <div class="row profile-row" style="width:90%;margin:auto">
+
+            <div class="col-md-6">
+
+                <div class="profile-section">
+                    <div class="about-user">
+                        <h2 class="section-header">Edit Profile</h2>
+                    </div>
+
+
+
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="First Name" id="fname" required ng-model="profile.user.fname">
+                        <label for="fname" class="form__label">First Name</label>
+                    </div>
+                    <div class="form__group" ng-if="profile.fnameErr">
+                        <div class="alert alert-danger info fixed-bottom" role="alert">
+                            <strong>Oh snap!</strong> Enter a valid First Name !!!
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Last Name" id="lname" required ng-model="profile.user.lname">
+                        <label for="lname" class="form__label">Last Name</label>
+                    </div>
+
+                    <div class="form__group" ng-if="profile.lnameErr">
+                        <div class="alert alert-danger info fixed-bottom" role="alert">
+                            <strong>Oh snap!</strong> Enter a valid Last Name !!!
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <span style="font-size:1.4rem;">Gender</span>
+                        <div class="radio">
+                            <label> 
+    <input type="radio" class="option-input radio" name="example" checked ng-model="profile.user.gender" value='M' required/>
+    Male
+  </label>
+                            <label>
+    <input type="radio" class="option-input radio" name="example" ng-model="profile.user.gender" value='F' required/>
+    Female
+  </label>
+                            <label>
+    <input type="radio" class="option-input radio" name="example" ng-model="profile.user.gender" value='O' required/>
+    Others
+  </label>
+                        </div>
+
+                    </div>
+
+                    <!--   <div class="form__group">
+                    <input type="text" class="form__input" placeholder="Country" id="country" required>
+                    <label for="country" class="form__label">Country</label>
+                </div> -->
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-section">
+                    <div class="about-user">
+                        <h2 class="section-header">Change Password</h2>
+                    </div>
+                    <div class="form__group">
+                        <input type="password" class="form__input" placeholder="Current Password" id="current_pass" required ng-model="profile.user.password" minlength="8">
+                        <label for="current_pass" class="form__label">Curent Password</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="password" class="form__input" placeholder="New Password" id="new_pass" ng-model="profile.user.newPass" minlength="8">
+                        <label for="new_pass" class="form__label">New Password</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="password" class="form__input" placeholder="Confirm Password" id="confirm_pass" ng-model="profile.user.confirmPass" minlength="8">
+                        <label for="confirm_pass" class="form__label">Confirm Password</label>
+                    </div>
+                    <div class="form__group" ng-if="profile.confirmPassMsg">
+                        <div class="alert alert-danger info fixed-bottom" role="alert">
+                            <strong>Oh snap!</strong> Password didn't match !!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row user-info-btn">
+            <div class="col-md-12" style="display:inline-block;text-align:center">
+                <button type="submit" class="edit-btn">Save Changes </button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Cuprum');
+    .profile-section {
+        font-family: "Lato", sans-serif;
+        display: inline-block;
+        background-color: white;
+        width: 100%;
+        word-spacing: 0.3rem;
+        margin: auto;
+        margin-top: 10rem;
+        text-align: left;
+        box-sizing: border-box;
+        padding: 3rem 4rem;
+        transition: box-shadow .3s ease-in;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    }
+    
+    .profile-section:hover {
+        -webkit-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+    }
+    
+    .about-user {
+        border-bottom: 1.5px solid #3F7FBF;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    .edit-btn {
+        margin-top: 20px;
+        background: red;
+        border: none;
+        outline: none;
+        height: 40px;
+        text-align: center;
+        width: 130px;
+        border-radius: 40px;
+        background: #F0F9FC;
+        border: 2px solid #1abc9c;
+        color: #1abc9c;
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .form__label {
+        color: #3F7FBF;
+        margin-left: 0;
+    }
+    
+    .edit-btn:hover {
+        color: white;
+        background: #1abc9c;
+    }
+    
+    input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1rem 0rem;
+        border-radius: 2px;
+        background-color: rbga(#fff, 0.5);
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        width: 100% !important;
+        display: block;
+        transition: all .3s;
+    }
+    
+    .form-check-label {
+        font-size: 1.6rem;
+    }
+    
+    @keyframes click-wave {
+        0% {
+            height: 40px;
+            width: 40px;
+            opacity: 0.35;
+            position: relative;
+        }
+        100% {
+            height: 200px;
+            width: 200px;
+            margin-left: -80px;
+            margin-top: -80px;
+            opacity: 0;
+        }
+    }
+    
+    .option-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        position: relative;
+        top: 13.33333px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 34px;
+        width: 34px !important;
+        transition: all 0.15s ease-out 0s;
+        background: #cbd1d8;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.5rem;
+        outline: none;
+        position: relative;
+        z-index: 1000;
+    }
+    
+    .option-input:hover {
+        background: #9faab7;
+    }
+    
+    .option-input:checked {
+        background: #40e0d0;
+    }
+    
+    .option-input:checked::before {
+        height: 34px;
+        width: 34px;
+        position: absolute;
+        content: '✔';
+        display: inline-block;
+        font-size: 26.66667px;
+        text-align: center;
+        line-height: 40px;
+    }
+    
+    .option-input:checked::after {
+        -webkit-animation: click-wave 0.65s;
+        -moz-animation: click-wave 0.65s;
+        animation: click-wave 0.65s;
+        background: #40e0d0;
+        content: '';
+        display: block;
+        position: relative;
+        z-index: 100;
+    }
+    
+    .option-input.radio {
+        border-radius: 50%;
+    }
+    
+    .option-input.radio::after {
+        border-radius: 50%;
+    }
+    
+    .radio div {
+        padding: 5rem;
+    }
+    
+    .radio label {
+        line-height: 40px;
+        font-size: 1.4rem;
+        color: #A599A5;
+    }
+</style>

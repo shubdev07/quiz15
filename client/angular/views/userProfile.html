@@ -1,0 +1,115 @@
+<div class="container-fluid row nav-container fixed-top" style="padding:0">
+    <div class="col-sm-12" style="padding:0">
+        <nav class="nav nav-pills nav-fill ">
+            <a class="nav-item nav-link" href="#/category">CATEGORY</a>
+            <a class="nav-item nav-link active" href="#/user/profile">MY  PROFILE</a>
+            <a class="nav-item nav-link" href="" ng-click="logout()">LOGOUT</a>
+        </nav>
+    </div>
+
+</div>
+<div class="container-fluid profile-page" style="padding:0;margin:0;min-height:100vh">
+
+    <div class="row profile-row" style="width:90%;margin:auto">
+
+        <div class="col-md-6 user-info">
+
+            <div class="profile-section">
+                <div class="about-user">
+                    <h2 class="section-header">About {{profile.user.name}}</h2>
+                </div>
+
+                <h2 class="profile-info">First Name : {{profile.user.fname}}</h2>
+                <h2 class="profile-info">Last Name : {{profile.user.lname}}</h2>
+                <h2 class="profile-info">Email : {{profile.user.email}}</h2>
+                <h2 class="profile-info">Gender : {{profile.user.gender || 'Not mentioned'}}</h2>
+                <!-- <h2 class="profile-info">Country : {{profile.user.country}}</h2> -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="profile-section">
+                <div class="about-user">
+                    <h2 class="section-header">User statistics</h2>
+                </div>
+
+                <!-- <h2 class="profile-info">Test(s) Attempted : test name</h2> -->
+                <h2 class="profile-info">Total Correct Answers : {{profile.user.correctAnswers}}</h2>
+                <h2 class="profile-info">Total Wrong Answers : {{profile.user.wrongAnswers || 0}}</h2>
+                <h2 class="profile-info">Total Points : {{profile.user.totalPoints}}</h2>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+    <div class="row user-info-btn" style="margin-top:10rem;">
+        <div class="col-md-12" style="display:inline-block;text-align:center">
+            <a ng-href="#/user/edit-profile"><button class="edit-btn">Edit Profile</button></a>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cuprum');
+        .profile-section {
+            font-family: "Lato", sans-serif;
+            display: inline-block;
+            background-color: white;
+            width: 100%;
+            word-spacing: 0.3rem;
+            margin: auto;
+            margin-top: 10rem;
+            text-align: left;
+            box-sizing: border-box;
+            padding: 3rem 4rem;
+            transition: box-shadow .3s ease-in;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+        
+        .profile-section:hover {
+            -webkit-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+            box-shadow: 1px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        }
+        
+        .about-user {
+            border-bottom: 1.5px solid #3F7FBF;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        .edit-btn {
+            margin-top: 20px;
+            background: red;
+            border: none;
+            outline: none;
+            height: 40px;
+            text-align: center;
+            width: 130px;
+            border-radius: 40px;
+            background: #F0F9FC;
+            border: 2px solid #1abc9c;
+            color: #1abc9c;
+            letter-spacing: 1px;
+            text-shadow: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .edit-btn:hover {
+            color: white;
+            background: #1abc9c;
+        }
+        
+        .nav-container {}
+    </style>
