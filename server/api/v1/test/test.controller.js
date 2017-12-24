@@ -73,14 +73,14 @@ module.exports.new = function(req, res, next) {
         [{
                 $match: {
                     category: req.params.name,
-                    difficultyLevel: "H",
+                    difficultyLevel: "E",
                     questionActive: 1
                 }
             },
             {
                 $limit: 4
             }
-            
+
         ],
         function(err, result) {
             if (err) {
@@ -94,7 +94,7 @@ module.exports.new = function(req, res, next) {
                 $match: {
                     category: req.params.name,
                     difficultyLevel: "M",
-                     questionActive: 1    
+                     questionActive: 1
                 }
             },
             {
@@ -112,9 +112,9 @@ module.exports.new = function(req, res, next) {
         [{
                 $match: {
                     category: req.params.name,
-                    difficultyLevel: "E",
+                    difficultyLevel: "H",
                      questionActive: 1
-                    
+
                 }
             },
             {
@@ -126,18 +126,18 @@ module.exports.new = function(req, res, next) {
                 next(err);
             }
             q.push(result);
-         
-        
+
+
         }
     );
-  
+
     setTimeout(function() {
         console.log(q.length);
         q.forEach((set,index)=>{
             set.forEach((question)=>{
                     questions.push(question);
             })
-        
+
         })
          Question.update({ _id: { $in: questions } }, { questionActive: 0 }, { multi: true },
                 function(err, docs) {
@@ -145,7 +145,7 @@ module.exports.new = function(req, res, next) {
                         next(err);
                     }
                     console.log('ho gaya');
-                    
+
                 }
             );
             var newTest = new Test({category: req.params.name,questions:questions});
@@ -161,4 +161,3 @@ module.exports.new = function(req, res, next) {
         )
     }, 4000);
 };
-

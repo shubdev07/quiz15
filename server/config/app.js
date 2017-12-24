@@ -17,7 +17,7 @@ const CONFIGURATION = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connection.openUri('mongodb://admin:admin@ds038319.mlab.com:38319/', {config: {autoIndex: false}});
+mongoose.connection.openUri(process.env.DB_URI, {config: {autoIndex: false}});
 mongoose.connection.on('error', function(err) {
   console.log('MongoDB Connection Error');
   process.exit(-1);
