@@ -127,10 +127,10 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
                     main.disableBtn = false;
                     main.number++;
                     if (main.number < 6) {
-                        main.seconds = 15;
+                        main.seconds = 30;
                     } else if (main.number >= 6 && main.number <= 10) {
-                        main.seconds = 20;
-                    } else main.seconds = 25;
+                        main.seconds = 35;
+                    } else main.seconds = 45;
                     $scope.timer();
                 }, 1000)
 
@@ -144,7 +144,7 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
             .then(function successCallback(response) {
 
                 main.response = response.data.data;
-                main.seconds = 15;
+                main.seconds = 30;
                 $scope.timer();
 
 
