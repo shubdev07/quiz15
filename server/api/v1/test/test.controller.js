@@ -1,5 +1,4 @@
-
- /* Created by Workspace on 12-Oct-17.
+/* Created by Workspace on 12-Oct-17.
  */
 var Question = require("../question/question.model");
 var Test = require("./test.model");
@@ -67,7 +66,7 @@ module.exports.edit = function(req, res, next) {
 
 module.exports.new = function(req, res, next) {
     console.log("Entered test");
-     var questions = [];
+    var questions = [];
     var q = [];
     Question.aggregate(
         [{
@@ -78,7 +77,7 @@ module.exports.new = function(req, res, next) {
                 }
             },
             {
-                $limit: 4
+                $limit: 6
             }
 
         ],
@@ -94,7 +93,7 @@ module.exports.new = function(req, res, next) {
                 $match: {
                     category: req.params.name,
                     difficultyLevel: "M",
-                     questionActive: 1
+                    questionActive: 1
                 }
             },
             {
@@ -113,12 +112,12 @@ module.exports.new = function(req, res, next) {
                 $match: {
                     category: req.params.name,
                     difficultyLevel: "H",
-                     questionActive: 1
+                    questionActive: 1
 
                 }
             },
             {
-                $limit: 6
+                $limit: 4
             }
         ],
         function(err, result) {
@@ -133,33 +132,31 @@ module.exports.new = function(req, res, next) {
 
     setTimeout(function() {
         console.log(q.length);
-        q.forEach((set,index)=>{
-            set.forEach((question)=>{
-                    questions.push(question);
+        q.forEach((set, index) => {
+            set.forEach((question) => {
+                questions.push(question);
             })
 
         })
         Question.update({ _id: { $in: questions } }, { questionActive: 0 }, { multi: true },
-                function(err, docs) {
-                    if (err) {
-                        next(err);
-                    }
-                    console.log('ho gaya');
-
-                }
-            );
-            var test = [...questions.filter((a,i)=>a.difficultyLevel==='E'),...questions.filter(a=>a.difficultyLevel==='M'),...questions.filter(a=>a.difficultyLevel==='H')];
-            console.log(test.length);
-            var newTest = new Test({category: req.params.name,questions:test});
-            newTest.save(function(err,doc){
+            function(err, docs) {
                 if (err) {
-                next(err);
+                    next(err);
+                }
+                console.log('ho gaya');
+
             }
-            else {
+        );
+        var test = [...questions.filter((a, i) => a.difficultyLevel === 'E'), ...questions.filter(a => a.difficultyLevel === 'M'), ...questions.filter(a => a.difficultyLevel === 'H')];
+        console.log(test.length);
+        var newTest = new Test({ category: req.params.name, questions: test });
+        newTest.save(function(err, doc) {
+            if (err) {
+                next(err);
+            } else {
                 console.log('ho gaya');
                 res.send(` ${req.params.name} Test generation complete`);
             }
-            }
-        )
+        })
     }, 4000);
 };
