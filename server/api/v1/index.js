@@ -34,7 +34,7 @@ router.get('/question/get/:qcategory', QuestionController.read);
 router.get('/question/show', QuestionController.read); //show all questions
 router.post('/question/edit', QuestionController.edit);
 router.post('/question/delete', QuestionController.delete);
-router.get('/question/makeOne', QuestionController.makeOne); //make question active
+router.get('/question/makeOne/:category', QuestionController.makeOne); //make question active
 router.get('/question/show/:id', QuestionController.readById);
 
 

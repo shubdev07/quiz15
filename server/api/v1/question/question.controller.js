@@ -75,7 +75,7 @@ module.exports.delete = function(req, res, next) {
 };
 
 module.exports.makeOne = function(req, res, next) {
-    Question.update({ questionActive: 0 }, { questionActive: 1 }, { multi: true },
+    Question.update({ category: req.params.category, questionActive: 0 }, { questionActive: 1 }, { multi: true },
         function(err, doc) {
             if (err) {
                 err.status = 406;
