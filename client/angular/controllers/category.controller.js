@@ -10,7 +10,7 @@ quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'lo
             if (_id === null) {
                 $window.location.href = "#/home";
             }
-        }, 1000);
+        }, 100);
 
         $window.scrollTo(0, 0);
         $scope.user = {
