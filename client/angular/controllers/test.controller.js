@@ -3,13 +3,9 @@
  */
 quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$timeout', '$rootScope', 'authFactory', '$uibModal', '$log', '$location', function($scope, $http, $routeParams, $window, $timeout, $rootScope, authFactory, $uibModal, $log) {
     var _id = authFactory._id;
-    console.log(_id);
     if (_id === null) {
         $window.location.href = "#/home";
     } else {
-
-
-
         var main = this;
         main.correct_msg = false;
         main.wrong_msg = false;
@@ -20,7 +16,7 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
 
         /*   var windowElement = angular.element($window);
           windowElement.on('beforeunload', function(event) {
-              // do whatever you want in here before the page unloads.        
+              // do whatever you want in here before the page unloads.
 
               // the following line of code will prevent reload or navigating away.
               //event.preventDefault();
@@ -38,7 +34,7 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
         };
         $rootScope.closeTest = () => {
             $timeout(function() {
-                console.log("show after directive partial loaded");
+
                 $window.location.href = "#/test-results";
             }, 2000);
         };
@@ -48,22 +44,22 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
         $scope.timer = function() {
                 var timeOut = $timeout(function() {
                     main.seconds--;
-                    console.log("chala");
+
                     if (main.seconds > 0) {
                         $scope.timer();
-                        console.log("You have" + main.seconds + "seconds left");
+
                     }
                     if (main.seconds === 0) {
-                        console.log("Time's UP!");
+
                         $rootScope.cancel = 1;
                         $rootScope.testResults.negativePoints += 5;
-                        //$window.location.href = "#/test-results";
+                        $window.location.href = "#/test-results";
                         $timeout.cancel(timeOut);
 
                     }
                 }, 1000);
                 $scope.$on("$destroy", function(event) {
-                    console.log("timer destroyed");
+
                     $timeout.cancel(timeOut);
                 });
             }
@@ -85,7 +81,7 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
                 main.seconds = -1;
                 main.correct_msg = true;
                 main.disableBtn = true;
-                console.log("Answer is correct");
+
                 $rootScope.testResults.correctAnswers++;
                 if (main.response.questions[main.number].difficultyLevel === 'E') {
                     $rootScope.testResults.totalPoints += 3;
@@ -93,7 +89,6 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
                 } else if (main.response.questions[main.number].difficultyLevel === 'M') {
                     $rootScope.testResults.totalPoints += 5;
                     main.score += 5;
-                    main.quit = true;
                 } else if (main.response.questions[main.number].difficultyLevel === 'H') {
                     $rootScope.testResults.totalPoints += 7;
                     main.score += 7;
@@ -108,7 +103,7 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
                 main.seconds = -1;
                 $rootScope.testResults.negativePoints += 5;
                 $rootScope.testResults.wrongAnswers += 1;
-                console.log($rootScope.testResults);
+
                 main.closeTest();
 
             }
@@ -116,22 +111,30 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
         };
         main.closeTest = () => {
             $timeout(function() {
-                console.log("show after directive partial loaded");
+
                 $window.location.href = "#/test-results";
             }, 2000);
         };
         $scope.question = {};
         main.incrementLimit = function() {
+
             if (main.number < 14) {
                 $timeout(function() {
+                    if (main.number === 4) {
+                        main.quit = true;
+                    }
                     main.correct_msg = false;
                     main.disableBtn = false;
                     main.number++;
-                    main.seconds = 15;
+                    if (main.number < 6) {
+                        main.seconds = 15;
+                    } else if (main.number >= 6 && main.number <= 10) {
+                        main.seconds = 20;
+                    } else main.seconds = 25;
                     $scope.timer();
                 }, 1000)
 
-                console.log(main.number);
+
             } else main.closeTest();
 
         };
@@ -139,11 +142,11 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
         $scope.categoryName = $routeParams.name;
         $http.get(`/api/v1/test/show/${$scope.categoryName}`)
             .then(function successCallback(response) {
-                //console.log(response.data.data);
+
                 main.response = response.data.data;
                 main.seconds = 15;
                 $scope.timer();
-                console.log(response.data.data);
+
 
 
 

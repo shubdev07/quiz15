@@ -5,11 +5,11 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
         $window.location.href = "#/home";
     }
     $scope.logout = function() {
-        //console.log("running logout");
+
         localStorageService.clearAll();
         $window.location.reload();
         $window.location.href = "#/home";
-    }
+    };
     var main = this;
     main.user = {};
     main.userInfo = false;
@@ -25,7 +25,7 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
     main.serverError = false;
     $http.get(`/api/v1/user/${_id}`)
         .then((res) => {
-            console.log(res);
+
             main.user.fname = res.data.data.fname;
             main.user.lname = res.data.data.lname;
             main.user.gender = res.data.data.gender;
@@ -33,7 +33,7 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
             main.user.password = res.data.data.password;
         })
         .catch((err) => {
-            console.log(err);
+            alert('Error while retrieving info, kindly refresh the page');
         })
     main.user.newPass = '';
     main.user.confirmPass = '';
@@ -45,13 +45,11 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
 
             main.confirmPassMsg = true;
 
-            console.log(main.user.newPass, main.user.confirmPass);
-
         } else {
             main.confirmPassMsg = false;
 
             data = { _id: _id, fname: main.user.fname, lname: main.user.lname, gender: main.user.gender, password: main.user.newPass || main.user.password };
-            console.log(data);
+
             $http.post('/api/v1/user/edit', data)
                 .then(function(doc) {
                     $timeout(() => {
@@ -61,7 +59,7 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
 
                     main.userInfo = false;
                     main.serverError = false;
-                    console.log(doc);
+
                 })
                 .catch(function(err) {
                     main.editBtnDisable = false;
@@ -70,10 +68,10 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
                     }
                     if (err.status === 406) {
                         main.accInfo = false;
-                        console.log(406);
+
                         if (err.data.errors.fname) {
 
-                            console.log(err.data.errors.fname);
+
                             $timeout(() => {
                                 main.fnameErr = false;
                             }, 3000);
@@ -104,7 +102,7 @@ quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorage
                             main.serverError = false;
                         }, 10000);
                         main.serverError = true;
-                        console.log(err);
+
                     }
 
 

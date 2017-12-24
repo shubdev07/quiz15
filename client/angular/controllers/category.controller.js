@@ -5,7 +5,6 @@
 quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
     function($scope, $http, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
         var _id = authFactory._id;
-        console.log(_id);
         $timeout(function() {
             if (_id === null) {
                 $window.location.href = "#/home";
@@ -51,20 +50,19 @@ quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'lo
                 $scope.selected = selectedItem;
             }, function() {})
         };
-        console.log('entering main');
         var main = this;
         main.leaderBoard = [];
         main.response = {};
         $http.get('/api/v1/users')
             .then(function(response) {
-                //console.log(response.data.data);
+
                 angular.forEach(response.data.data, function(user) {
                     main.leaderBoard.push({ name: user.fname, points: user.totalPoints });
                 });
-                console.log(main.leaderBoard);
+
             })
             .catch((err) => {
-                console.log(err);
+                alert('Some error occurred while retrieving leaderBoard');
             })
 
     }

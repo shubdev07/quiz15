@@ -5,7 +5,7 @@ quizApp.config(['$routeProvider', function($routeProvider) {
     'use strict';
     $routeProvider
         .when('/', {
-            template: '<h3>Hello</h3>',
+          
             controller: 'indexController'
 
         })

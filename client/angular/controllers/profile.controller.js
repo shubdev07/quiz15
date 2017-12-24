@@ -1,11 +1,11 @@
 quizApp.controller('profileController', ['$scope', '$timeout', 'localStorageService', 'loginFactory', 'signup', '$window', 'authFactory', '$http', function($scope, $timeout, localStorageService, loginFactory, signup, $window, authFactory, $http) {
     var _id = authFactory._id;
-    console.log(_id);
+
     if (_id === null) {
         $window.location.href = "#/home";
     }
     $scope.logout = function() {
-        //console.log("running logout");
+
         localStorageService.clearAll();
         $window.location.reload();
         $window.location.href = "#/home";
@@ -14,7 +14,7 @@ quizApp.controller('profileController', ['$scope', '$timeout', 'localStorageServ
     main.user = {};
     $http.get(`/api/v1/user/${_id}`)
         .then((res) => {
-            console.log(res);
+
             main.user.fname = res.data.data.fname;
             main.user.lname = res.data.data.lname;
             main.user.email = res.data.data.email;
@@ -25,7 +25,7 @@ quizApp.controller('profileController', ['$scope', '$timeout', 'localStorageServ
             main.user.totalPoints = res.data.data.totalPoints;
         })
         .catch((err) => {
-            console.log(err);
+            alert('Error while retrieving info, kindly refresh the page');
         })
 
 

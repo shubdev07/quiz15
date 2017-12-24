@@ -3,15 +3,10 @@
  */
 quizApp.controller('testResults', ['$rootScope', '$http', '$window', 'authFactory', '$timeout', function($rootScope, $http, $window, authFactory, $timeout) {
     var _id = authFactory._id;
-    //console.log(_id);
     if (_id === null) {
         $window.location.href = "#/home";
     } else {
-        /*   $rootScope.$on('$locationChangeStart', function(event, next, current) {
-              
-              //alert('You cannot go back from here');
-              $window.location.href = '#/category';
-          }); */
+
         var main = this;
         main._id = _id;
         main.leaderBoard = [];
@@ -43,16 +38,16 @@ quizApp.controller('testResults', ['$rootScope', '$http', '$window', 'authFactor
         $timeout(() => {
             $http.get('/api/v1/users')
                 .then(function(response) {
-                    console.log(response);
+
                     angular.forEach(response.data.data, function(user) {
-                        console.log(user);
+
                         main.leaderBoard.push({ name: user.fname, correctAnswers: user.correctAnswers });
                     });
-                    console.log(main.leaderBoard);
+
                 })
                 .catch((err) => {
 
-                    //console.log(err);
+                    alert('Error while retrieving correct answer info');
                 })
         }, 1500)
 

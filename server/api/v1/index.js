@@ -16,37 +16,35 @@ router.post('/user/add', UserController.add);
 router.post('/user/edit', UserController.edit);
 router.post('/user/updateScore', UserController.updateScore);
 //router.get('/create', UserController.create);
-
 router.post('/user/login/', UserController.login);
 router.delete('/user/:uid', UserController.deactivate);
 
 
 
-
+//CATEGORIES API
 router.post('/category/add', CategoryController.add);
 router.get('/category/show', CategoryController.read);
-
 router.post('/category/delete', CategoryController.delete);
+
 
 //Question API
 //router.get('/question/:qid', QuestionController);
 router.post('/question/add', QuestionController.add);
 router.get('/question/get/:qcategory', QuestionController.read);
-router.get('/question/show', QuestionController.read);
+router.get('/question/show', QuestionController.read); //show all questions
 router.post('/question/edit', QuestionController.edit);
 router.post('/question/delete', QuestionController.delete);
-router.get('/question/makeOne', QuestionController.makeOne);
+router.get('/question/makeOne', QuestionController.makeOne); //make question active
 router.get('/question/show/:id', QuestionController.readById);
 
-//Test API
 
+
+//Test API
 router.post('/test/add', TestController.add);
 router.get('/test/show/:name', TestController.show);
 router.post('/test/delete', TestController.delete);
 router.post('/test/edit', TestController.edit);
-router.get('/test/new/:name', TestController.new);
-
-
+router.get('/test/new/:name', TestController.new); //generate test automatically
 //router.get('/test/test',TestController.test);
 
 module.exports = router;

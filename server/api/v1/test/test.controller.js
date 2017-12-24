@@ -139,7 +139,7 @@ module.exports.new = function(req, res, next) {
             })
 
         })
-         Question.update({ _id: { $in: questions } }, { questionActive: 0 }, { multi: true },
+        Question.update({ _id: { $in: questions } }, { questionActive: 0 }, { multi: true },
                 function(err, docs) {
                     if (err) {
                         next(err);
@@ -148,7 +148,9 @@ module.exports.new = function(req, res, next) {
 
                 }
             );
-            var newTest = new Test({category: req.params.name,questions:questions});
+            var test = [...questions.filter((a,i)=>a.difficultyLevel==='E'),...questions.filter(a=>a.difficultyLevel==='M'),...questions.filter(a=>a.difficultyLevel==='H')];
+            console.log(test.length);
+            var newTest = new Test({category: req.params.name,questions:test});
             newTest.save(function(err,doc){
                 if (err) {
                 next(err);

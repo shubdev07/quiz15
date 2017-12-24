@@ -2,6 +2,7 @@
  * Created by Workspace on 18-Nov-17.
  */
 quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService', 'loginFactory', 'signup', '$window', '$route', function($scope, $timeout, localStorageService, loginFactory, signup, $window, $route) {
+
     var main = this;
     main.userInfo = false;
     main.signupBtn = false;
@@ -22,7 +23,7 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
 
         main.signupBtn = true;
         main.loginBtnDisable = true;
-        console.log($scope.email, $scope.password);
+
         loginFactory.login($scope.email, $scope.password)
             .then(function(doc) {
                 main.serverError = false;
@@ -42,24 +43,24 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                     main.userInfo = true;
                     main.loginBtnDisable = false;
                 }
-                console.log(err);
+
 
             })
     }
 
     $scope.signUp = function() {
         main.signupBtnDisable = true;
-        console.log($scope.new_email, $scope.fname, $scope.lname, $scope.new_password);
+
         signup.createAcc($scope.fname, $scope.lname, $scope.new_email, $scope.new_password)
             .then(function(doc) {
-                console.log(doc);
+
                 localStorageService.set('_id', doc.data.data._id);
                 localStorageService.set('fname', doc.data.data.fname);
                 main.accInfo = true;
                 main.userInfo = false;
                 main.emailErr = false;
                 main.serverErrorSignup = false;
-                console.log(doc);
+
                 $timeout(() => {
                     $window.location.href = '#/category';
                 }, 1500)
@@ -71,10 +72,10 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                 }
                 if (err.status === 406) {
                     main.signUpEmail = false;
-                    console.log(406);
+
                     if (err.data.errors.fname) {
                         main.signUpEmail = false;
-                        console.log(err.data.errors.fname);
+
                         main.fnameErr = true;
                         main.lnameErr = false;
                         main.emailErr = false;
@@ -94,7 +95,7 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                 if (err.status >= 500) {
                     main.serverErrorSignup = true;
                 }
-                console.log(err);
+
 
 
 
