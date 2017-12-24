@@ -9,5 +9,4 @@ quizApp.controller('indexController',['$scope','localStorageService','authFactor
     else {
         $window.location.href="#/home";
     }
-
 }]);
