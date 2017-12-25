@@ -8,9 +8,9 @@
                     <span ng-if="test.response.questions[test.number].difficultyLevel=='M'">MEDIUM</span>
                     <span ng-if="test.response.questions[test.number].difficultyLevel=='H'">HARD</span>
                 </h3>
-                <h3 class="heading-primary--sub " style="margin:0;padding-bottom:1rem;text-align:left">Carrying <span ng-if="test.response.questions[0][test.number].difficultyLevel=='E'">3</span>
-                    <span ng-if="test.response.questions[0][test.number].difficultyLevel=='M'">5</span>
-                    <span ng-if="test.response.questions[0][test.number].difficultyLevel=='H'">7</span>
+                <h3 class="heading-primary--sub " style="margin:0;padding-bottom:1rem;text-align:left">Carrying <span ng-if="test.response.questions[test.number].difficultyLevel=='E'">3</span>
+                    <span ng-if="test.response.questions[test.number].difficultyLevel=='M'">5</span>
+                    <span ng-if="test.response.questions[test.number].difficultyLevel=='H'">7</span>
                     <span>Points</span>
                 </h3>
                 <h3 class="heading-primary--sub " style="margin:0;padding-bottom:1rem;text-align:left">Score Gained: {{test.score}}
