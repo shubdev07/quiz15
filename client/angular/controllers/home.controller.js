@@ -34,7 +34,7 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                 $timeout(() => {
                     $window.location.href = '#/category';
                     $window.scrollTo(0, 0);
-                }, 1500)
+                }, 2000)
             })
             .catch(function(err) {
                 if (err.status >= 500) {
