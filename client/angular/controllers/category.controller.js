@@ -5,13 +5,10 @@
 quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
     function($scope, $http, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
         var _id = authFactory._id;
-        alert(_id);
         $timeout(() => {
             if (_id === null) {
-                alert(_id);
                 $window.location.href = "#/home";
             } else {
-                alert('else wala ' + _id);
 
                 $window.scrollTo(0, 0);
                 $scope.user = {
