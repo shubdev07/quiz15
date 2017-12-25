@@ -65,7 +65,7 @@ quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'lo
                     })
 
             }
-        }, 1000)
+        }, 2000)
 
     }
 ]);
