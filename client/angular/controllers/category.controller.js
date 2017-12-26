@@ -5,6 +5,7 @@
 quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
     function($scope, $http, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
         var _id = localStorageService.get('_id');
+        var name = localStorageService.get('fname');
         $timeout(() => {
             if (_id == null) {
                 $window.location.href = "#/home";
@@ -12,7 +13,7 @@ quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'lo
 
                 $window.scrollTo(0, 0);
                 $scope.user = {
-                    name: authFactory.fname
+                    name: name
                 };
                 $scope.logout = function() {
 
