@@ -4,9 +4,9 @@
 
 quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
     function($scope, $http, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
-        var _id = authFactory._id;
+        var _id = localStorageService.get('_id');
         $timeout(() => {
-            if (_id === null) {
+            if (_id == null) {
                 $window.location.href = "#/home";
             } else {
 

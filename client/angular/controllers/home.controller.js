@@ -34,7 +34,7 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                 $timeout(() => {
                     $window.location.href = '#/category';
                     $window.scrollTo(0, 0);
-                }, 2000)
+                }, 3000)
             })
             .catch(function(err) {
                 if (err.status >= 500) {
@@ -63,7 +63,7 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
 
                 $timeout(() => {
                     $window.location.href = '#/category';
-                }, 1500)
+                }, 3000)
             })
             .catch(function(err) {
                 main.signupBtnDisable = false;
