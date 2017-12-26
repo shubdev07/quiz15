@@ -67,7 +67,7 @@ var userSchema = new Schema({
         type: String,
         trim: true,
         uppercase: true,
-        enum: ['M', 'F','O', null],
+        enum: ['M', 'F', 'O', null],
         required: false,
         default: null
     },
@@ -103,20 +103,21 @@ var userSchema = new Schema({
 });
 
 
-userSchema.pre('save', function(next) {
-  let _this = this;
-  var hash = bcrypt.hashSync(_this.password, 8);
-  _this.password = hash;
-  return next();
-/*  if(_this.isNew || _this.isModified('password')) {
+/* userSchema.pre('save', function(next) {
+    let _this = this;
+    var hash = bcrypt.hashSync(_this.password, 8);
+    _this.password = hash;
+    return next();
+});
+  if(_this.isNew || _this.isModified('password')) {
     bcrypt.hash(_this.password, 5, function(err, hashedPassword) {
       _this.password = hashedPassword;
       return next();
     });
   } else {
     return next();
-  }*/
-});
+  } */
+
 
 
 

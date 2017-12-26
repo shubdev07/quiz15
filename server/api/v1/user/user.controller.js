@@ -97,13 +97,14 @@ module.exports.login = function(req, res, next) {
             //console.log(req.body.password,user.password);
             console.log(user);
             return res.status(200).json({ message: 'Logging in', data: user });
-            bcrypt.compare(req.body.password, user.password, function(err, match) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log(match);
-                }
-            })
+            /* bcrypt.compare(req.body.password,user.password,function(err,match){
+              if(err){
+                 console.log(err);
+              }
+              else{
+                 console.log(match);
+              }
+             })*/
 
             /*  user.compare(req.body.password,function(arr){
                   console.log(`-----------${arr}-------------`);
