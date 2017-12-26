@@ -4,7 +4,7 @@ const User = require('./user.model');
 const bcrypt = require('bcryptjs');
 
 module.exports.getById = function(req, res, next) {
-    User.findById(req.params.id, {fname: 1, lname: 1, gender: 1, email: 1,country: 1, correctAnswers: 1, totalPoints: 1, wrongAnswers: 1,password:1}, function(err, user) {
+    User.findById(req.params.id, { fname: 1, lname: 1, gender: 1, email: 1, country: 1, correctAnswers: 1, totalPoints: 1, wrongAnswers: 1, password: 1 }, function(err, user) {
         if (err) {
             err.status = 404;
             return next(err);
@@ -48,7 +48,7 @@ module.exports.add = function(req, res, next) {
                         err.status = 406;
                         return next(err);
                     }
-                    return res.status(201).json({ message: 'Your account has been created successfully. Please login to continue.',data:doc });
+                    return res.status(201).json({ message: 'Your account has been created successfully. Please login to continue.', data: doc });
                 }) //end of user.save
         } //end of else
 
@@ -79,12 +79,10 @@ module.exports.add = function(req, res, next) {
     });
 }; */
 module.exports.login = function(req, res, next) {
-    User.findOne({ email: req.body.email,password: req.body.password}, function(err, user) {
+    User.findOne({ email: req.body.email, password: req.body.password }, function(err, user) {
         if (err) {
             return next(err);
-        }
-
-        else if(!user) {
+        } else if (!user) {
             return res.status(404).json({ message: 'user doesn\'t exist', data: null });
         }
         /* if(user[0].email === 'shubworkmail@gmail.com'){
@@ -96,23 +94,22 @@ module.exports.login = function(req, res, next) {
          }*/
         // res.cookie('uid', user[0]._id, {maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: false});
         else {
-           //console.log(req.body.password,user.password);
-           console.log(user);
-           return res.status(200).json({ message: 'Logging in', data: user });
-           /* bcrypt.compare(req.body.password,user.password,function(err,match){
-             if(err){
-                console.log(err);
-             }
-             else{
-                console.log(match);
-             }
-            })*/
+            //console.log(req.body.password,user.password);
+            console.log(user);
+            return res.status(200).json({ message: 'Logging in', data: user });
+            bcrypt.compare(req.body.password, user.password, function(err, match) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(match);
+                }
+            })
 
-          /*  user.compare(req.body.password,function(arr){
-                console.log(`-----------${arr}-------------`);
-            })*/
+            /*  user.compare(req.body.password,function(arr){
+                  console.log(`-----------${arr}-------------`);
+              })*/
         }
-        
+
     });
 };
 
@@ -142,7 +139,7 @@ module.exports.edit = function(req, res, next) {
                 message: 'Profile Updated',
                 data: doc
             });
-        
+
         });
 
 };
@@ -151,7 +148,7 @@ module.exports.edit = function(req, res, next) {
 
 module.exports.updateScore = function(req, res, next) {
     User.findOne({ "_id": req.body._id }, function(err, user) {
-    console.log(req.body);
+        console.log(req.body);
         if (err) {
             err.status = 500;
             console.log("error occued");
@@ -160,7 +157,7 @@ module.exports.updateScore = function(req, res, next) {
         if (!user) {
             return res.status(404).json({ message: 'User doesn\'t exists' });
         } else {
-            User.findOneAndUpdate({ "_id": user._id }, { correctAnswers: user.correctAnswers + req.body.correctAnswers, totalPoints: user.totalPoints + req.body.totalPoints,wrongAnswers: user.wrongAnswers + req.body.wrongAnswers }, { new: true }, function(err, newDoc) {
+            User.findOneAndUpdate({ "_id": user._id }, { correctAnswers: user.correctAnswers + req.body.correctAnswers, totalPoints: user.totalPoints + req.body.totalPoints, wrongAnswers: user.wrongAnswers + req.body.wrongAnswers }, { new: true }, function(err, newDoc) {
                 console.log(newDoc);
                 return res.status(200).json({ message: 'Your score has been added successfully.', doc: newDoc });
 
