@@ -1,7 +1,6 @@
-quizApp.controller('profileController', ['$scope', '$timeout', 'localStorageService', 'loginFactory', 'signup', '$window', 'authFactory', '$http', function($scope, $timeout, localStorageService, loginFactory, signup, $window, authFactory, $http) {
-    var _id = authFactory._id;
-
-    if (_id === null) {
+quizApp.controller('profileController', ['$scope', '$timeout', 'localStorageService', 'loginFactory', '$rootScope', 'signup', '$window', 'authFactory', '$http', function($scope, $timeout, localStorageService, loginFactory, $rootScope, signup, $window, authFactory, $http) {
+    var _id = $rootScope._id;
+    if (_id === undefined || _id === null) {
         $window.location.href = "#/home";
     }
     $scope.logout = function() {

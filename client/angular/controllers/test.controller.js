@@ -2,10 +2,11 @@
  * Created by Workspace on 04-Nov-17.
  */
 quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$timeout', '$rootScope', 'authFactory', '$uibModal', '$log', '$location', function($scope, $http, $routeParams, $window, $timeout, $rootScope, authFactory, $uibModal, $log) {
-    var _id = authFactory._id;
-    if (_id === null) {
-        $window.location.href = "#/home";
-    } else {
+
+        var _id = $rootScope._id;
+        if (_id === undefined || _id === null) {
+            $window.location.href = "#/home";
+        }
         var main = this;
         main.correct_msg = false;
         main.wrong_msg = false;
@@ -154,12 +155,12 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
 
 
             });
-    }
 
 
-    // modal code
 
-    $scope.openTestInfo = function(size) {
+        // modal code
+
+        $scope.openTestInfo = function(size) {
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -189,9 +190,10 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
+
         // modal code ends
 
-    $scope.quitModal = function(size) {
+        $scope.quitModal = function(size) {
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -222,7 +224,10 @@ quizApp.controller('test', ['$scope', '$http', '$routeParams', '$window', '$time
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });
-        }
-        // modal code ends
 
-}]);
+            // modal code ends
+
+        }
+    }
+
+]);

@@ -2,15 +2,20 @@
  * Created by Workspace on 29-Sep-17.
  */
 
-quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
-    function($scope, $http, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
+quizApp.controller("category", ['$scope', '$http', '$rootScope', '$window', 'authFactory', 'localStorageService', '$uibModal', '$log', '$timeout',
+    function($scope, $http, $rootScope, $window, authFactory, localStorageService, $uibModal, $log, $timeout) {
+        if ($rootScope._id !== undefined && $rootScope.fname !== undefined) {
+            var _id = $rootScope._id;
+            var name = $rootScope.fname;
+        }
         var _id = localStorageService.get('_id');
         var name = localStorageService.get('fname');
+        $rootScope._id = _id;
+        $rootScope.fname = name;
         $timeout(() => {
-            if (_id == null) {
+            if (_id === null || _id === undefined) {
                 $window.location.href = "#/home";
             } else {
-
                 $window.scrollTo(0, 0);
                 $scope.user = {
                     name: name
@@ -66,7 +71,7 @@ quizApp.controller("category", ['$scope', '$http', '$window', 'authFactory', 'lo
                     })
 
             }
-        }, 2000)
+        }, 1000)
 
     }
 ]);

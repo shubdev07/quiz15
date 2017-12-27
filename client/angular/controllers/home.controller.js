@@ -1,7 +1,7 @@
 /**
  * Created by Workspace on 18-Nov-17.
  */
-quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService', 'loginFactory', 'signup', '$window', '$route', function($scope, $timeout, localStorageService, loginFactory, signup, $window, $route) {
+quizApp.controller('homeController', ['$scope', '$rootScope', '$timeout', 'localStorageService', 'loginFactory', 'signup', '$window', '$route', function($scope, $rootScope, $timeout, localStorageService, loginFactory, signup, $window, $route) {
 
     var main = this;
     main.userInfo = false;
@@ -30,11 +30,13 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
                 main.loginSuccess = true;
                 localStorageService.set('_id', doc.data.data._id);
                 localStorageService.set('fname', doc.data.data.fname);
+                $rootScope._id = doc.data.data._id;
+                $rootScope.fname = doc.data.data.fname;
                 //$window.location.href = '#/category';
                 $timeout(() => {
                     $window.location.href = '#/category';
                     $window.scrollTo(0, 0);
-                }, 3000)
+                }, 2000)
             })
             .catch(function(err) {
                 if (err.status >= 500) {
@@ -56,6 +58,8 @@ quizApp.controller('homeController', ['$scope', '$timeout', 'localStorageService
 
                 localStorageService.set('_id', doc.data.data._id);
                 localStorageService.set('fname', doc.data.data.fname);
+                $rootScope._id = doc.data.data._id;
+                $rootScope.fname = doc.data.data.fname;
                 main.accInfo = true;
                 main.userInfo = false;
                 main.emailErr = false;

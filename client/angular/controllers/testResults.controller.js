@@ -2,8 +2,8 @@
  * Created by Workspace on 12-Nov-17.
  */
 quizApp.controller('testResults', ['$rootScope', '$http', '$window', 'authFactory', '$timeout', function($rootScope, $http, $window, authFactory, $timeout) {
-    var _id = authFactory._id;
-    if (_id === null) {
+    var _id = $rootScope._id;
+    if (_id === undefined || _id === null) {
         $window.location.href = "#/home";
     } else {
 

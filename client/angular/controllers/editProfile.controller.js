@@ -1,7 +1,8 @@
-quizApp.controller('editProfileController', ['$scope', '$timeout', 'localStorageService', '$http', '$window', 'authFactory', '$route', '$interval', function($scope, $timeout, localStorageService, $http, $window, authFactory, $route, $interval) {
-    var _id = authFactory._id;
+quizApp.controller('editProfileController', ['$scope', '$timeout', '$rootScope', 'localStorageService', '$http', '$window', 'authFactory', '$route', '$interval', function($scope, $timeout, $rootScope, localStorageService, $http, $window, authFactory, $route, $interval) {
+    var _id = $rootScope._id;
 
-    if (_id === null) {
+
+    if (_id === undefined || _id === null) {
         $window.location.href = "#/home";
     }
     $scope.logout = function() {
