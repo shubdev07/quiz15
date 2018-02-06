@@ -169,3 +169,7 @@ module.exports.updateScore = function(req, res, next) {
     });
 
 };
+
+module.exports.test = (req, res) => {
+    res.send('I am for test purpose');
+}

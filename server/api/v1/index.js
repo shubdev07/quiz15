@@ -4,10 +4,9 @@ const UserController = require('./user/user.controller');
 const QuestionController = require('./question/question.controller');
 const CategoryController = require('./category/category.controller');
 const TestController = require('./test/test.controller');
-/*const QuestionController = require('./question/question.controller');
-const AnswerController = require('./answer/answer.controller');*/
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+
+const router = express.Router();
 
 // User API
 router.get('/user/:id', UserController.getById);
@@ -18,7 +17,7 @@ router.post('/user/updateScore', UserController.updateScore);
 //router.get('/create', UserController.create);
 router.post('/user/login/', UserController.login);
 router.delete('/user/:uid', UserController.deactivate);
-
+router.get('/test',UserController.test);
 
 
 //CATEGORIES API
@@ -36,7 +35,6 @@ router.post('/question/edit', QuestionController.edit);
 router.post('/question/delete', QuestionController.delete);
 router.get('/question/makeOne/:category', QuestionController.makeOne); //make question active
 router.get('/question/show/:id', QuestionController.readById);
-
 
 
 //Test API
