@@ -1,7 +1,7 @@
 {
-    "name": "core",
+    "name": "quiz15",
     "version": "1.0.0",
-    "description": "core node.js",
+    "description": "QUIZ15 is an online platform where you can play quizzes in many popular categories.",
     "main": "server.js",
     "engines": {
         "node": "8.1.2",
@@ -14,11 +14,10 @@
         "compile-sass": "node-sass client/assets/sass/main.scss client/assets/css/style.css -w"
     },
     "keywords": [],
-    "author": "Shubham",
+    "author": "shubdev07@gmail.com",
     "license": "MIT",
     "devDependencies": {
         "dotenv": "^4.0.0",
-        "eslint-config-rallycoding": "^3.2.0",
         "nodemon": "^1.12.0"
     },
     "dependencies": {
