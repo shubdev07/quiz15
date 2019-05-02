@@ -89,6 +89,19 @@ Stuffs still left to add to the App -
  - Make more Tests
  - Introduce forget password functionality
 
+### Next Upcoming Version 2.0.0
+Technologies to be used -
+  - React [Frontend]
+  - NodeJS with EXpress [Backend]
+  - MongoDB [Database]
+
+### You can contribute if you are a -
+  - Web Designer
+  - React developer
+  - Node developer
+  - Unit Tester
+  - DevOps [Deployment]
+
 License
 ----
 
