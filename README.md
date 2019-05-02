@@ -6,6 +6,9 @@
 
 QUIZ15 IS AN ONLINE PLATFORM WHERE YOU CAN PLAY QUIZZES IN MANY POPULAR CATEGORIES.
 
+# Prerequisites
+Nodejs version >= 8.1.2
+
 # Other Features!
 
   - Get points for every right answer
@@ -51,11 +54,15 @@ Install the dependencies and devDependencies by navigating to the QUIZ15 folder 
 ```sh
 $ npm install
 ```
-Then create a new .env file
-
-##### And set the value for port and DB_URI in key value format
---
->port:{ A port here }, DB_URI:{ Your mongodb authentication key }
+<ol>
+<li> Add your environment variables.<br>
+To do that create a file with name .env and add the appropriate values that matches with your development environment.<br>
+A .env file may look something like:</li>
+</ol>
+<pre><code>NODE_ENV = development
+PORT = 3000
+DB_URI = mongodb://mongodb0.example.com:27017/
+</code></pre>
 
 Then run the command
 
@@ -63,7 +70,7 @@ Then run the command
 $ npm start
 ```
 
-#### Then head to localhost:{your port} in the browser
+#### Then head to localhost:<your port> in the browser
 
 
 
@@ -87,10 +94,7 @@ License
 
 MIT
 ### Contact the Dev -
-[Instagram](https://www.instagram.com/indiandevjourney/) - Heavily Active !
-
-[Twitter](https://twitter.com/indianDevJourne) - Somewhat Active !
-
-[Youtube](https://www.youtube.com/channel/UCbQHh5NqVtyFRr-iYF62ANg) - Trying to be Active !
+Email: shubdev07@gmail.com <br />
+Whatsapp/Telegram: +91 8638563970
 
 ### { Shubham Karmakar }

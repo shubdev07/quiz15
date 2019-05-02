@@ -1,3 +1,7 @@
 1. Update express settings - /server/config/express.js
 
 2. Remove vunerable and unwanted packages
+
+3. Introduce logger
+
+4. Error handling
