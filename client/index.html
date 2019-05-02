@@ -9,18 +9,54 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <!-- <-- loading bootstrap framework -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <style>
+        .marquee {
+            width: 100%;
+            text-align: center;
+            line-height: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
+        .marquee p {
+            font-size: 16px;
+            display: inline-block;
+            /* padding-left: 100%; */
+            /* animation: marquee 36s linear infinite; */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="marquee alert alert-danger" role="alert">
+        <p> I am rebuilding QUIZ15. Anyone wishes to collab: kindly drop a mail at shubworkmail@gmail.com or Whatsapp me
+            at
+            +91 8638563970</p>
+    </div>
     <div ng-view>
+
 
     </div>
 
