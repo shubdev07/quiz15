@@ -1,5 +1,7 @@
 # QUIZ15
 
+```I am rebuilding QUIZ15. Anyone wishes to collab: kindly drop a mail at shubworkmail@gmail.com or Whatsapp me at +91 8638563970
+
 [![N|Solid](https://preview.ibb.co/fS2dww/appImg.png)](https://ibb.co/kLEDUG)
 
 QUIZ15 IS AN ONLINE PLATFORM WHERE YOU CAN PLAY QUIZZES IN MANY POPULAR CATEGORIES.
